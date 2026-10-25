@@ -1,0 +1,8 @@
+# Installers / binaries accidentally dropped in the project
+*.exe
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+node_modules/

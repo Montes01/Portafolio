@@ -1,0 +1,398 @@
+/* ---------------------------------------------------------
+   Reusable pieces — buttons, cards, timeline, quotes, contact.
+   --------------------------------------------------------- */
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.35rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s var(--ease), background-color 0.2s var(--ease),
+    border-color 0.2s var(--ease), color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 24px -12px var(--accent);
+}
+
+.btn-ghost {
+  border-color: var(--line);
+  color: var(--text-soft);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-faint);
+  color: var(--text);
+}
+
+.btn-lg {
+  padding: 0.85rem 1.8rem;
+  font-size: 0.98rem;
+}
+
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.about-grid.no-stats {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.prose {
+  display: grid;
+  gap: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  max-width: 60ch;
+}
+
+.prose p:first-child {
+  color: var(--text);
+}
+
+.prose .about-lead {
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  vertical-align: -0.04em;
+  color: var(--text);
+}
+
+.prose .about-lead-num {
+  color: var(--accent);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1.25rem;
+}
+
+.stats portfolio-stat {
+  display: block;
+  border-left: 1px solid var(--line);
+  padding-left: 1rem;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats small {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+  display: block;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.75rem 2.5rem;
+}
+
+.skill-group h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+}
+
+.skill-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip {
+  font-size: 0.85rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.6rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -28px rgba(0, 0, 0, 0.5);
+}
+
+.card.featured {
+  grid-column: 1 / -1;
+  padding: clamp(1.6rem, 3.5vw, 2.4rem);
+  background: var(--bg-soft);
+  background: linear-gradient(
+    145deg,
+    var(--bg-soft),
+    color-mix(in srgb, var(--accent-soft) 60%, var(--surface))
+  );
+}
+
+/* Photo bleeding in from the right edge, fading to transparent to the left. */
+.card-media {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -1;
+  width: min(46%, 380px);
+  overflow: hidden;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to left, #000 0%, #000 32%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, #000 32%, transparent 100%);
+}
+
+.card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Keep the copy clear of the photo. */
+.card.has-media {
+  padding-right: min(44%, 380px);
+}
+
+.card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card h3 .arrow {
+  font-size: 0.85em;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.card:hover h3 .arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.card .year {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.card p {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.card .tags li {
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+  border: 1px solid var(--line);
+  padding: 0.16rem 0.5rem;
+  border-radius: 5px;
+}
+
+.card .links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.card .links a {
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.card .links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* card link overlay for the featured card title */
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Timeline */
+.timeline {
+  display: grid;
+  gap: 0;
+}
+
+.timeline > portfolio-job {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.timeline > portfolio-job:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.timeline .period {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.25rem;
+}
+
+.timeline h3 {
+  font-size: 1.05rem;
+}
+
+.timeline .company {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+.timeline p {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+  margin-top: 0.6rem;
+  max-width: 62ch;
+}
+
+.timeline .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.timeline .tags li {
+  font-size: 0.74rem;
+  color: var(--text-faint);
+  background: var(--bg-soft);
+  border-radius: 5px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* Quotes */
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 1.6rem;
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+
+.quote blockquote {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.quote blockquote::before {
+  content: "\201C";
+  color: var(--accent);
+  font-size: 1.6em;
+  line-height: 0;
+  vertical-align: -0.28em;
+  margin-right: 0.06em;
+}
+
+.quote figcaption {
+  font-size: 0.84rem;
+  color: var(--text-faint);
+  margin-top: auto;
+}
+
+.quote figcaption strong {
+  display: block;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+

@@ -1,0 +1,68 @@
+/* ---------------------------------------------------------
+   Design tokens — colours, radii, easing. Change the theme here.
+   --------------------------------------------------------- */
+
+/* =========================================================
+   Design tokens
+   ========================================================= */
+:root {
+  --bg: #fbfaf8;
+  --bg-grad-a: #ffffff;
+  --bg-grad-b: #e9e5de;
+  --bg-soft: #f3f1ed;
+  --surface: #ffffff;
+  --text: #1a1a19;
+  --text-soft: #5c5a55;
+  --text-faint: #8b8880;
+  --line: #e4e0d9;
+  --accent: #b4522b;
+  --accent-soft: rgba(180, 82, 43, 0.1);
+  --radius: 14px;
+  --max: 1080px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root[data-theme="dark"] {
+  --bg: #121211;
+  --bg-grad-a: #000000;
+  --bg-grad-b: #2b2b28;
+  --bg-soft: #1a1a18;
+  --surface: #1c1c1a;
+  --text: #f2efe9;
+  --text-soft: #a8a49c;
+  --text-faint: #736f68;
+  --line: #2c2b28;
+  --accent: #e0835a;
+  --accent-soft: rgba(224, 131, 90, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121211;
+    --bg-grad-a: #000000;
+    --bg-grad-b: #2b2b28;
+    --bg-soft: #1a1a18;
+    --surface: #1c1c1a;
+    --text: #f2efe9;
+    --text-soft: #a8a49c;
+    --text-faint: #736f68;
+    --line: #2c2b28;
+    --accent: #e0835a;
+    --accent-soft: rgba(224, 131, 90, 0.12);
+  }
+}
+
+:root[data-theme="light"] {
+  --bg: #fbfaf8;
+  --bg-grad-a: #ffffff;
+  --bg-grad-b: #e9e5de;
+  --bg-soft: #f3f1ed;
+  --surface: #ffffff;
+  --text: #1a1a19;
+  --text-soft: #5c5a55;
+  --text-faint: #8b8880;
+  --line: #e4e0d9;
+  --accent: #b4522b;
+  --accent-soft: rgba(180, 82, 43, 0.1);
+}
+

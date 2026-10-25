@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Samuel Montes Guevara | Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Full Stack Developer in Armenia, Colombia. React, Next.js, React Native and Angular. Open to new opportunities."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1a19'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23e0835a'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved) document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span data-bind="profile.name">Portfolio</span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="#experience">Experience</a>
+          <a href="#work">Projects</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+        </nav>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle colour theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" />
+            <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero wrap" id="top">
+        <h1 class="sr-only" data-bind="profile.name"></h1>
+        <div class="hero-top">
+          <p class="hero-role" data-bind="profile.role"></p>
+          <p class="hero-socials" data-bind="socials"></p>
+        </div>
+        <p class="hero-meta">
+          <span data-bind="profile.location"></span>
+        </p>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section wrap" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <ol class="timeline" data-bind="experience"></ol>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section wrap" id="work">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects" data-bind="projects"></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section wrap" id="about">
+        <h2 class="section-title">About me</h2>
+        <div class="about-grid">
+          <div class="prose" data-bind="about"></div>
+          <ul class="stats" data-bind="stats"></ul>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section wrap" id="skills">
+        <h2 class="section-title">Skills &amp; tools</h2>
+        <div class="skills-grid" data-bind="skills"></div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section wrap" id="words">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="quotes" data-bind="testimonials"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          © <span id="year"></span>
+          <span data-bind="profile.name"></span>
+        </p>
+        <p class="footer-note">Built with plain HTML, CSS and JavaScript.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

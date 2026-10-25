@@ -1,0 +1,101 @@
+/* ---------------------------------------------------------
+   Breakpoints and print styles.
+   --------------------------------------------------------- */
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  html {
+    scroll-padding-top: 7rem;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-block: 0.7rem 0.55rem;
+    gap: 0.55rem;
+  }
+
+  .brand {
+    order: 1;
+  }
+
+  .theme-toggle {
+    order: 2;
+    margin-left: auto;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    gap: 1.15rem;
+    font-size: 0.83rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Project photo becomes a soft banner on top instead of a side bleed. */
+  .card.has-media {
+    padding-top: 9.5rem;
+    padding-right: 1.4rem;
+  }
+  .card-media {
+    inset: 0 0 auto 0;
+    width: 100%;
+    height: 9rem;
+    border-radius: var(--radius) var(--radius) 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline > portfolio-job {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .timeline .period {
+    padding-top: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .hero-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Print */
+@media print {
+  .site-header,
+  .theme-toggle,
+  .skip-link {
+    display: none;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .section {
+    break-inside: avoid;
+  }
+}
